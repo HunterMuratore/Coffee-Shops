@@ -1,81 +1,54 @@
+const { connect, Schema, model } = require('mongoose'); // Deconstruct the mongoose object
+
 const PORT = process.env.port || 3333;
 
-const { MongoClient, ObjectId } = require('mongodb');
-const url = 'mongodb://127.0.0.1:27017'; // Might have to use 127.0.0.1 instead of localhost 
-const client = new MongoClient(url);
+connect('mongodb://127.0.0.1:27017/coffee_shop_db'); // the last part of the connection url is the database name you want to use or create
 
-const db_name = 'fruits_db';
+const shopSchema = new Schema({
+    name: String,
+    location: String,
+    is_chain: Boolean
+});
 
-client.connect()
-    .then(() => {
-        // Select the db you are working with
-        const db = client.db(db_name);
+const Shop = model('Shop', shopSchema);
 
-        // Select the db collection object you are working with
-        const fruits = db.collection('fruits');
+// Shop.create({
+//     name: 'Coffee Now',
+//     location: 'Somerville',
+//     is_chain: true
+// }).then(new_shop => {
+//     console.log(new_shop)
+// });
 
-        // fruits.insertOne({
-        //     name: 'apple'
-        // }).then((result) => {
-        //     console.log(result);
-        // });
+// Shop.find()
+//     .then(shops => console.log(shops));
 
-        // fruits.find({}).toArray()
-        //     .then((result) => {
-        //         console.log(result);
-        //     });
 
-        // fruits.updateOne({
-        //     _id: new ObjectId('653a7b97166114711e0e24c4')
-        // }, {
-        //     $set: {
-        //         name: 'banana'
-        //     }
-        // });
+// Shop.findById('653a89f367639dd8eb0c571f')
+//     .then(shop => console.log(shop));
 
-        // fruits.findOneAndUpdate({
-        //     _id: new ObjectId('653a7b97166114711e0e24c4')
-        // }, {
-        //     $set: {
-        //         name: 'banana'
-        //     }
-        // }).then((result) => {
-        //     console.log(result);
-        // });
+// Shop.insertMany([
+//     {
+//         name: 'Coffee Now',
+//         location: 'Somerville',
+//         is_chain: true
+//     },
+//     {
+//         name: 'Dunkin',
+//         location: 'Branchburg',
+//         is_chain: true
+//     },
+//     {
+//         name: 'Cafe Mez',
+//         location: 'Bridgewater',
+//         is_chain: true
+//     }])
 
-        // fruits.insertMany([{
-        //     name: 'orange'
-        // },
-        // {
-        //     name: 'watermelon'
-        // },
-        // {
-        //     name: 'strawberry'
-        // },
-        // {
-        //     name: 'starfruit'
-        // }]).then((result) => {
-        //     console.log('Insert complete');
-        // });
+// Shop.findByIdAndUpdate('653a89f367639dd8eb0c571f', {
+//     name: 'Starbucks'
+// }, {
+//     new: true // This returns the new db object (don't always want this bc you may still need the old one to compare or something)
+// }).then(shop => console.log(shop));
 
-        // fruits.deleteOne({
-        //     _id: new ObjectId('653a7b97166114711e0e24c4')
-        // }).then((result) => {
-        //     console.log('deleted fruit');
-        // });
-
-        /* Insert an array of shops to the collection */
-        /* Insert one shop object to the fruit collection */
-        fruits.insertOne({
-            shop_name: 'Wegmans'
-        }).then((result) => {
-            console.log(result);
-        });
-
-        fruits.find()
-            // .skip(1)
-            // .limit(1)
-            .sort({name: 1}) // Sort by name in ascending order (-1 for descending)
-            .toArray()
-            .then(fruits => console.log(fruits));
-    });
+// Shop.findByIdAndDelete('653a961a9adb78726be60cc8')
+//     .then(result => console.log('shop deleted'));
