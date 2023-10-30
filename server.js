@@ -1,5 +1,5 @@
 const express = require('express');
-const api_routes = require('./controllers/api_routes'); 
+const { shop_routes, coffee_routes } = require('./controllers'); 
 const db = require('./config/connection');
 
 const app = express();
@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3333;
 
 app.use(express.json());
-app.use('/api', api_routes);
+app.use('/api', shop_routes, coffee_routes);
 
 db.on('open', () => {
     console.log('Database connected!');
