@@ -30,7 +30,8 @@ app.use('/', api_routes);
 // Catch any unknown routes and throw a 404
 app.get('*', (req, res) => {
     res.status(404).send({
-        message: 'That route is incorrect'
+        message: 'That route is incorrect',
+        error: 404
     });
 });
 

@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const { User } = require('../models');
 
-const { isLoggedIn } = require('./helpers');
+const { isLoggedIn, authenticate } = require('./helpers');
 
 
 // Register
@@ -13,7 +13,7 @@ router.post('/register', isLoggedIn, async (req, res) => {
         req.session.user_id = user._id;
 
         res.json(user);
-    } catch(err) {
+    } catch (err) {
         console.log(err.message);
         res.status(401).send({
             message: err.message
@@ -51,7 +51,7 @@ router.post('/login', isLoggedIn, async (req, res) => {
 
         res.send(user);
 
-    } catch(err) {
+    } catch (err) {
         console.log(err.message);
         res.status(401).send({
             message: err.message
@@ -59,8 +59,17 @@ router.post('/login', isLoggedIn, async (req, res) => {
     }
 });
 
-// Is Authenticated
+// Is Authenticated - this will send the user if they are logged in otherwise send null
+// Can be used to send a user view if they are logged in or a guest view if they are not
+router.get('/authenticate', authenticate, (req, res) => {
+    res.json(req.user);
+});
 
 // Log Out
+router.get('/logout', (req, res) => {
+    req.session.destroy();
+
+    res.json({ message: 'Logged out successfully' });
+});
 
 module.exports = router;
