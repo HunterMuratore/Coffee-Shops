@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const Shop = require('../models/Shop');
+const { isAuthenticated } = require('./helpers');
+
+const { Shop } = require('../models');
 
 
 

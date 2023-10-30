@@ -13,16 +13,14 @@ const shopSchema = new Schema({
         type: Boolean,
         default: true
     },
-    coffees: [{
-        name: {
-            type: String,
-            required: true
-        },
-        strength: {
-            type: String,
-            required: true
-        }
-    }]
+    coffees: {
+        type: Schema.Types.ObjectId,
+        ref: 'Coffee'
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 });
 
 const Shop = model('Shop', shopSchema);
