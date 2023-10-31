@@ -34,6 +34,7 @@ function isAuthenticated(req, res, next) {
     next();
 }
 
+// Attach the user to the request object
 async function authenticate(req, res, next) {
     const user = await User.findById(req.session.user_id);
 

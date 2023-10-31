@@ -15,8 +15,25 @@ router.post('/register', isLoggedIn, async (req, res) => {
         res.json(user);
     } catch (err) {
         console.log(err.message);
-        res.status(401).send({
-            message: err.message
+
+        const code = err.code;
+        const errors = [];
+
+        if (code === 11000) {
+            return res.status(403).send({
+                message: 'That email address is already registered'
+            });
+        }
+
+        for (let prop in err.errors) {
+            const txt = err.errors[prop].message;
+
+            errors.push(txt);
+        }
+
+        res.status(403).send({
+            message: 'Authentication error',
+            errors
         });
     }
 });
@@ -53,7 +70,7 @@ router.post('/login', isLoggedIn, async (req, res) => {
 
     } catch (err) {
         console.log(err.message);
-        res.status(401).send({
+        res.status(500).send({
             message: err.message
         });
     }

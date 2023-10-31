@@ -64,19 +64,27 @@ router.put('/shop/:shop_id', isAuthenticated, authenticate, async (req, res) => 
     const { coffee_id } = req.body;
 
     try {
-
-        // const allowed = req.user.shops.some(shop => shop._id.equals(shop_id));
         const allowed = req.user.shops.includes(shop_id);
 
-        console.log(allowed);
+        if (allowed) {
+            const updated_shop = await Shop.findByIdAndUpdate(shop_id, {
+                // Add the coffee only if it is not already added to that Shop
+                $addToSet: {
+                    coffees: coffee_id
+                }
+            }, { new: true });
 
-        // const updated_shop = await Shop.findByIdAndUpdate(shop_id, {
-        //   $push: {
-        //     coffees: coffee_id
-        //   }
-        // }, { new: true });
 
-        // res.json(updated_shop);
+            return res.json({
+                message: 'Shop updated successfully',
+                shop: updated_shop
+            });
+        }
+
+        res.status(401).send({
+            message: 'You are not the owner of that shop and cannot perform this action'
+        });
+
     } catch (err) {
         console.log(err.message);
         res.status(500).send({ error: err.message });

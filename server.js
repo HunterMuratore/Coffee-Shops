@@ -19,7 +19,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     cookie: { 
-        maxAge: 3 * 60 * 1000, // Expires after 3 minutes
+        maxAge: 15 * 60 * 1000, // Expires after 3 minutes
         httpOnly: true // Cookies cannot be accessed through client-side JS
      }
 }));
