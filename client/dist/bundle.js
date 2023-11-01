@@ -7,15 +7,16 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("const { printName } = __webpack_require__(/*! ./lib/tools */ \"./src/lib/tools.js\");\r\n\r\nprintName('Hunter');\n\n//# sourceURL=webpack://client/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _lib_tools__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/tools */ \"./src/lib/tools.js\");\n\r\n\r\n(0,_lib_tools__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('Hunter');\n\n//# sourceURL=webpack://client/./src/index.js?");
 
 /***/ }),
 
@@ -23,9 +24,9 @@ eval("const { printName } = __webpack_require__(/*! ./lib/tools */ \"./src/lib/t
 /*!**************************!*\
   !*** ./src/lib/tools.js ***!
   \**************************/
-/***/ ((module) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("function printName(name) {\r\n    console.log(name, 'is cool!');\r\n}\r\n\r\nmodule.exports = {\r\n    printName\r\n}\n\n//# sourceURL=webpack://client/./src/lib/tools.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst outputEl = document.querySelector('#output');\r\n\r\noutputEl.innerHTML = 'Just some content';\r\n\r\nfunction printName(name) {\r\n    console.log(name, 'is awesome!');\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (printName);\r\n\r\n// module.exports = {\r\n//     printName\r\n// }\n\n//# sourceURL=webpack://client/./src/lib/tools.js?");
 
 /***/ })
 
@@ -54,6 +55,35 @@ eval("function printName(name) {\r\n    console.log(name, 'is cool!');\r\n}\r\n\
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
 /******/ 	
 /************************************************************************/
 /******/ 	

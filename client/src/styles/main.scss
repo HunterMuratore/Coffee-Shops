@@ -1,0 +1,78 @@
+// VARIABLES
+$main-color: rgb(106, 57, 25);
+$accent-color: #c19d67;
+
+// RESETS
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: rgb(255, 255, 255);
+    color: $main-color;
+    a {
+        text-decoration: none;
+    }
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+// GLOBAL CLASSES
+.row, .column {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+// CUSTOM CLASSES
+header {
+    padding: 6px 3%;
+    background-color: $accent-color;
+    h3, span {
+        color: $main-color
+    }
+    nav a {
+        color: white;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.hero {
+    padding: 15px 5%;
+    margin-top: 5%;
+    & > *:not(:last-child) {
+        margin-bottom: 10px;
+    }
+    button {
+        padding: 5px 12px;
+        border-radius: 3px;
+        background-color: $accent-color;
+        color: #fff;
+        transition: background-color .3s;
+        &:hover {
+            background-color: darken($accent-color, 15%);
+        }
+    }
+}

@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= titleValue %></title>
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
 </head>
-<body>
-    <h1>Coffee Shop App</h1>
 
-    <p>hey there webpack boy</p>
+<body>
+    <header class="row justify-between align-center">
+        <h3>Coffee Shop App</h3>
+
+        <nav>
+            <a href="#">Register</a>
+            <span>or</span>
+            <a href="#">Login</a>
+        </nav>
+    </header>
+    <div id="output"></div>
+
+    <template id="landing-html">
+        <section class="hero text-center">
+            <h1>Find what's roasting</h1>
+            <h3>We are dedicated to connecting coffee enthusiasts around the world</h3>
+            <button>See Posted Shops</button>
+        </section>
+    </template>
 </body>
+
 </html>
