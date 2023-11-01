@@ -1,10 +1,10 @@
 import './styles/main.scss';
 
-import printName from './lib/printName';
+import { render } from './lib/actions';
 
-const landingContent = document.querySelector('#landing-html')
-const outputEl = document.querySelector('#output');
+import landingContent from './views/landing.hbs';
 
-outputEl.innerHTML = landingContent.innerHTML;
-
-printName('Hunter');
+render(landingContent, {
+    name: 'Hunter',
+    coffees: ['Black', 'Caramel Latte', 'Chai Tea']
+})

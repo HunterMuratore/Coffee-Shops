@@ -18,6 +18,10 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
+      { 
+        test: /\.hbs$/, 
+        loader: "handlebars-loader" 
+      }
     ],
   },
   plugins: [new HtmlWebpackPlugin({

@@ -13,9 +13,14 @@ body {
     font-family: sans-serif;
     background-color: rgb(255, 255, 255);
     color: $main-color;
-    a {
-        text-decoration: none;
-    }
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
 }
 
 button {
