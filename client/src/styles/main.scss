@@ -49,12 +49,23 @@ button {
     text-align: center;
 }
 
+section {
+    padding: 15px 5%;
+    margin-top: 5%;
+    & > *:not(:last-child) {
+        margin-bottom: 15px;
+    }
+}
+
 // CUSTOM CLASSES
 header {
     padding: 6px 3%;
     background-color: $accent-color;
     h3, span {
-        color: $main-color
+        color: $main-color;
+    }
+    h3:hover {
+        text-decoration: underline;
     }
     nav a {
         color: white;
@@ -65,11 +76,6 @@ header {
 }
 
 .hero {
-    padding: 15px 5%;
-    margin-top: 5%;
-    & > *:not(:last-child) {
-        margin-bottom: 10px;
-    }
     button {
         padding: 5px 12px;
         border-radius: 3px;
@@ -79,5 +85,13 @@ header {
         &:hover {
             background-color: darken($accent-color, 15%);
         }
+    }
+}
+
+.shops {
+    .shop {
+        background-color: lighten($accent-color, 25%);
+        padding: 15px 5%;
+        border-radius: 3px;
     }
 }

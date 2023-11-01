@@ -1,5 +1,5 @@
 {
-  "name": "mongodb_overview",
+  "name": "coffee_shops",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,9 +7,13 @@
     "install:server": "cd ./server && npm i",
     "install": "npm run install:server",
     "dev:server": "cd ./server && npm run dev",
-    "dev": "npm run dev:server"
+    "dev:client": "cd ./client && npm run serve",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\""
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
 }
