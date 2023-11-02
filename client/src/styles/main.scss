@@ -26,10 +26,21 @@ li {
 button {
     border: none;
     cursor: pointer;
+    padding: 5px 12px;
+    border-radius: 3px;
+    background-color: $accent-color;
+    color: #fff;
+    transition: background-color .3s;
+
+    &:hover {
+        background-color: darken($accent-color, 15%);
+    }
+
 }
 
 // GLOBAL CLASSES
-.row, .column {
+.row,
+.column {
     display: flex;
 }
 
@@ -52,38 +63,65 @@ button {
 section {
     padding: 15px 5%;
     margin-top: 5%;
-    & > *:not(:last-child) {
+
+    &>*:not(:last-child) {
         margin-bottom: 15px;
     }
+}
+
+.username {
+    font-weight: 600;
+    color: $main-color;
+}
+
+form {
+    width: 350px;
+    margin: 25px auto 0;
+
+    >* {
+        margin: 5px 0;
+        padding: 6px 10px;
+    }
+
+    h3 {
+        color: $main-color;
+    }
+
+    outline: none;
 }
 
 // CUSTOM CLASSES
 header {
     padding: 6px 3%;
     background-color: $accent-color;
-    h3, span {
+
+    h3,
+    span {
         color: $main-color;
     }
+
     h3:hover {
         text-decoration: underline;
     }
-    nav a {
-        color: white;
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-}
 
-.hero {
-    button {
-        padding: 5px 12px;
-        border-radius: 3px;
-        background-color: $accent-color;
-        color: #fff;
-        transition: background-color .3s;
-        &:hover {
-            background-color: darken($accent-color, 15%);
+    nav {
+        > *:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        p {
+            color: white;
+            span{
+                margin-right: 25px;
+            }
+        }
+
+        a {
+            color: white;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 }

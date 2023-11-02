@@ -1,5 +1,5 @@
 const outputEl = document.querySelector('#output');
 
-export function render(view, data) {
-    outputEl.innerHTML = view(data);
+export function render(hbsFunction, data) {
+    outputEl.innerHTML = hbsFunction(data);
 }

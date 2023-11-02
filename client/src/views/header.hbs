@@ -1,0 +1,15 @@
+<a href="/">
+    <h3>Coffee Quest</h3>
+</a>
+<nav class="row align-center">
+    {{#if user}}
+        <p>Welcome, <span class="username">{{user.username}}</span></p>
+        <a href="/profile">Profile</a>
+        <span>or</span>
+        <a href="/logout">Logout</a>
+    {{else}}
+        <a href="/register">Register</a>
+        <span>or</span>
+        <a href="/login">Login</a>
+    {{/if}}
+</nav>
