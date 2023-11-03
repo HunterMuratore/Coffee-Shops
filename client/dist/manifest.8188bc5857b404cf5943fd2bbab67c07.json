@@ -1,0 +1,47 @@
+{
+  "icons": [
+    {
+      "src": "auto/icon_512x512.b7b2bc24b0b152ae0f983d39271ccb34.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "auto/icon_512x512.b7b2bc24b0b152ae0f983d39271ccb34.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "auto/icon_384x384.e253a5aa309463b70dce925b824ebeb1.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "auto/icon_256x256.c95d06dd9e195ff4c8f206ef273aa89d.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "auto/icon_192x192.597917848fc64ebda14d2bbb98968f5a.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "auto/icon_128x128.7b27d8dac62dc97f35d36eeed025af3a.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "auto/icon_96x96.ce8cffa20f4fa75c1a27c9d62ba16338.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "name": "Coffee Shop App",
+  "short_name": "CShop",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "App to find coffee around the world!",
+  "background_color": "#ffffff"
+}

@@ -8,6 +8,9 @@
         <span>or</span>
         <a href="/logout">Logout</a>
     {{else}}
+        {{#if message}}
+            <p class="error">{{message}}</p>
+        {{/if}}
         <a href="/register">Register</a>
         <span>or</span>
         <a href="/login">Login</a>

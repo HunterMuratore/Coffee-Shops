@@ -2,11 +2,18 @@ const express = require('express');
 const session = require('express-session');
 const api_routes = require('./controllers')
 
+const path = require('path');
 require('dotenv').config();
 
 const db = require('./config/connection');
 
 const app = express();
+
+const is_prod = process.env.NODE_ENV.trim() === 'production';
+
+if (is_prod) {
+    app.use(express.static(path.join(__dirname, '../client/dist')));
+}
 
 const PORT = process.env.PORT || 3333;
 

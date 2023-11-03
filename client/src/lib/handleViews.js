@@ -8,7 +8,7 @@ import shopsView from '../views/shops.hbs'; // When you import a handlebars temp
 
 async function showShops() {
     const { data: shops } = await axios.get('/api/shops');
-    
+
     render(shopsView, { shops });
 }
 
@@ -43,25 +43,30 @@ function showLogin(e) {
 }
 
 async function showHeader() {
-    const res = await axios.get('/auth/authenticate');
     const headerEl = document.querySelector('#main-header');
 
-    // Set the user data to the window global variable to be used anywhere
-    window.user = res.data;
+    try {
+        const res = await axios.get('/auth/authenticate');
 
-    headerEl.innerHTML = headerView({ user: res.data });
+        // Set the user data to the window global variable to be used anywhere
+        window.user = res.data;
 
-    // Target all links with an href of /login
-    const loginLink = document.querySelector('a[href="/login"]');
+        headerEl.innerHTML = headerView({ user: res.data });
 
-    if (loginLink) {
-        loginLink.addEventListener('click', showLogin);
-    }
+        // Target all links with an href of /login
+        const loginLink = document.querySelector('a[href="/login"]');
 
-    const logoutLink = document.querySelector('a[href="/logout"]');
+        if (loginLink) {
+            loginLink.addEventListener('click', showLogin);
+        }
 
-    if (logoutLink) {
-        logoutLink.addEventListener('click', logoutUser);
+        const logoutLink = document.querySelector('a[href="/logout"]');
+
+        if (logoutLink) {
+            logoutLink.addEventListener('click', logoutUser);
+        }
+    } catch (err) {
+        headerEl.innerHTML = headerView({ message: 'Authentication Error' });
     }
 }
 
