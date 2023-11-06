@@ -63,7 +63,17 @@ module.exports = {
       {
         test: /\.hbs$/,
         loader: "handlebars-loader"
-      }
+      },
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        },
+      },
     ],
   },
   plugins,
@@ -71,7 +81,7 @@ module.exports = {
     watchFiles: ['./src/lib/index.html'],
     port: 8080,
     proxy: {
-      '*': 'http://localhost:3333' // This makes is so that all requests get made throught the 3333 3333
+      '*': 'http://localhost:3333' // This makes is so that all requests get made throught the 3333 port
     }
   }
 };
