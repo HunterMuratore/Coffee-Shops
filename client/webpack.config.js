@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { GenerateSW } = require('workbox-webpack-plugin');
 
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const is_prod = process.env.NODE_ENV.trim() === 'production';
 
@@ -13,6 +14,7 @@ const plugins = [
     inject: 'body',
     template: path.join(__dirname, './src/index.html')
   }),
+  new CleanWebpackPlugin(),
 ];
 
 if (is_prod) {
@@ -47,7 +49,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.js',
+    filename: 'bundle.[fullhash].js', // Cache busting by making it create a new file name every time you build so it forces the browser to make a server request for the new file 
   },
   mode: is_prod ? 'production' : 'development',
   module: {
